@@ -18,6 +18,11 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
+
+  # @custom gems (keep alphabetical)
+  gem 'compass'
+  gem 'compass-960-plugin'
+  gem 'compass-rails'
 end
 
 gem 'jquery-rails'
@@ -36,3 +41,8 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'debugger'
+
+# @custom gems (keep alphabetical)
+gem 'bourbon'
+gem 'flutie'
+gem 'thin'
