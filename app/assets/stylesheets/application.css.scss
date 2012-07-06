@@ -15,3 +15,15 @@
 @import "flutie";
 @import "bourbon";
 @import "960/grid";
+
+// Grid layout
+$ninesixty-grid-width: 720px;
+
+body {
+  @include grid_container;
+}
+
+#wrapper {
+  @include grid(12);
+  @include clearfix;
+}
