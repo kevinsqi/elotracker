@@ -22,7 +22,22 @@ body {
   @include grid_container;
 }
 
-#wrapper {
+#header {
   @include grid(12);
   @include clearfix;
+}
+
+#content {
+  @include grid(8);
+  @include clearfix;
+}
+
+#sidebar {
+  @include grid(4);
+  @include clearfix;
+}
+
+// Global styles
+ul {
+  list-style-type: square;
 }
