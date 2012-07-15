@@ -11,6 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(:version => 20120715040549) do
+
+  create_table "players", :force => true do |t|
+    t.text     "name"
+    t.integer  "k_factor"
+    t.boolean  "is_professional"
+    t.integer  "league_id"
+    t.integer  "player_rating_id"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  add_index "players", ["league_id"], :name => "index_players_on_league_id"
+  add_index "players", ["player_rating_id"], :name => "index_players_on_player_rating_id"
 
 end
