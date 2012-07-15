@@ -9,7 +9,6 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require_tree .
  */
 
 @import "flutie";
@@ -17,7 +16,7 @@
 @import "960/grid";
 
 // Grid layout
-$ninesixty-grid-width: 720px;
+$ninesixty-grid-width: 960px;
 
 body {
   @include grid_container;
