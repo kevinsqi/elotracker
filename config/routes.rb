@@ -1,4 +1,6 @@
 RailsScaffold::Application.routes.draw do
+  resources :players
+
   root :to => 'pages#index'
 
   get "pages/index"
