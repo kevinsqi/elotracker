@@ -5,11 +5,9 @@ class CreatePlayers < ActiveRecord::Migration
       t.integer :k_factor
       t.boolean :is_professional
       t.references :league
-      t.references :player_rating
 
       t.timestamps
     end
     add_index :players, :league_id
-    add_index :players, :player_rating_id
   end
 end
