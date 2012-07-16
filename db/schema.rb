@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120715233633) do
+ActiveRecord::Schema.define(:version => 20120716043814) do
+
+  create_table "leagues", :force => true do |t|
+    t.text     "name"
+    t.text     "description"
+    t.boolean  "is_public",    :default => true
+    t.boolean  "is_completed", :default => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+  end
 
   create_table "player_ratings", :force => true do |t|
     t.integer  "rating"
