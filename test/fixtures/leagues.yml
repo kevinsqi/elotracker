@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyText
+  description: MyText
+  is_public: false
+  is_completed: false
+
+two:
+  name: MyText
+  description: MyText
+  is_public: false
+  is_completed: false
