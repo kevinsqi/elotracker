@@ -1,4 +1,6 @@
 RailsScaffold::Application.routes.draw do
+  resources :matches
+
   resources :leagues
 
   resources :players
