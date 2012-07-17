@@ -1,6 +1,8 @@
 class Player < ActiveRecord::Base
-  belongs_to :league
   attr_accessible :is_professional, :k_factor, :name
+
+  belongs_to :league
+  has_many :matches
 
   # TODO make is_professional default => false
   validates_presence_of :is_professional
