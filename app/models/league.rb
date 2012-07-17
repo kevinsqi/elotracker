@@ -4,4 +4,8 @@ class League < ActiveRecord::Base
   has_many :players, :dependent => :destroy
 
   accepts_nested_attributes_for :players, :allow_destroy => true
+
+  validates_presence_of :name
+  validates_presence_of :is_completed
+  validates_presence_of :is_public
 end
