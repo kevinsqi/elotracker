@@ -65,4 +65,18 @@
 
 <div id="sidebar">
   <h2>Create a new league</h2>
+  <%= form_for @league do |form| %>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+
+    <% @league.players.each_with_index do |player, index| %>
+      <%= form.fields_for player do |player_form| %>
+        <%= player_form.label :name, "Player #{index + 1}" %>
+        <%= player_form.text_field :name %>
+      <% end %>
+    <% end %>
+    <%= form.submit 'Create' %>
+  <% end %>
 </div>
