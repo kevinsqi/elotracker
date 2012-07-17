@@ -1,7 +1,18 @@
-<div id="header">
-  <h1>Elotracker</h1>
-  <div class="description">
-    Custom ELO rankings for everything
+<div id="wrapper">
+  <div id="header">
+    <h1>
+      Elotracker
+      <%= image_tag 'icons/chart_line_48.png', :alt => 'Elotracker graph' %>
+    </h1>
+    <div class="description">
+      <%= @page_title %>
+    </div>
+  </div>
+
+  <div id="navigation">
+    <%= link_to 'View your leagues' %>
+    <%= link_to 'Create a new league' %>
+    <%= link_to 'Sign in' %>
   </div>
 </div>
 
@@ -47,7 +58,7 @@
       <ul>
         <li>Chess</li>
         <li>Go</li>
-        <li>Table tennis</li>
+        <li>Ping pong</li>
         <li>Foosball</li>
         <li>Starcraft</li>
       </ul>
@@ -58,26 +69,40 @@
     <h2>Things you can do with Elotracker</h2>
     <div class="content">
       <ul>
-        <li>Internal company leaderboards and competitions</li>
+        <li>Internal company leaderboards and competitions (ping pong, etc.)</li>
       </ul>
     </div>
   </div>
 </div>
 
 <div id="sidebar">
-  <h2>Create a new league</h2>
-  <%= form_for @league do |form| %>
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-    <%= form.label :description %>
-    <%= form.text_field :description %>
+  <div class="section">
+    <h2>Create a new league</h2>
+    <%= form_for @league do |form| %>
+      <%= form.label :name %>
+      <%= form.text_field :name %>
+      <%= form.label :description %>
+      <%= form.text_field :description %>
 
-    <% @league.players.each_with_index do |player, index| %>
-      <%= form.fields_for player do |player_form| %>
-        <%= player_form.label :name, "Player #{index + 1}" %>
-        <%= player_form.text_field :name %>
+      <%# TODO validation errors, repeated IDs league_player_name %>
+      <% @league.players.each_with_index do |player, index| %>
+        <%= form.fields_for player do |player_form| %>
+          <%= player_form.label :name, "Player #{index + 1}" %>
+          <%= player_form.text_field :name %>
+        <% end %>
       <% end %>
+      <%= form.submit 'Create' %>
     <% end %>
-    <%= form.submit 'Create' %>
-  <% end %>
+  </div>
+
+  <div class="section">
+    <h2>Recent activity in public leagues</h2>
+    <%# TODO %>
+  </div>
+</div>
+
+<div id="footer">
+  <%= link_to 'About' %><%# TODO credit to gaslight/elo, iain/elo, also originates from wanting to track ping pong stats %>
+  <%= link_to 'API' %>
+  <%= link_to 'Contact' %>
 </div>

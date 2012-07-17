@@ -22,9 +22,19 @@ body {
   @include grid_container;
 }
 
-#header {
+#wrapper {  // TODO rename to header
   @include grid(12);
   @include clearfix;
+}
+
+#header {
+  @include grid(8);
+  @include alpha;
+}
+
+#navigation {
+  @include grid(4);
+  @include omega;
 }
 
 #content {
@@ -34,6 +44,11 @@ body {
 
 #sidebar {
   @include grid(4);
+  @include clearfix;
+}
+
+#footer {
+  @include grid(12);
   @include clearfix;
 }
 
