@@ -1,11 +1,21 @@
 class Player < ActiveRecord::Base
+  DEFAULT_K_FACTOR = 15
+
   attr_accessible :is_professional, :k_factor, :name
 
   belongs_to :league
   has_many :matches
 
-  # TODO make is_professional default => false, then re-enable validation
-# validates_presence_of :is_professional
+  validates :is_professional, :inclusion => {:in => [true, false]}
   validates_presence_of :k_factor
   validates_presence_of :name
+
+  after_initialize :default_values
+
+  def default_values
+    if self.new_record?
+      self.is_professional = false  # TODO make is_professional default => false in DB and remove this
+      self.k_factor = DEFAULT_K_FACTOR
+    end
+  end; private :default_values
 end

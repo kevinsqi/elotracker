@@ -20,6 +20,9 @@
   <%= @league.is_completed %>
 </p>
 
+<div>
+  <%= @league.players %>
+</div>
 
 <%= link_to 'Edit', edit_league_path(@league) %> |
 <%= link_to 'Back', leagues_path %>

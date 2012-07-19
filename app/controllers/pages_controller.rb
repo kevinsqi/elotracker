@@ -1,8 +1,10 @@
 class PagesController < ApplicationController
+
+  INITIAL_NUM_PLAYER_FIELDS = 5
   def index
     @page_title = 'Custom ELO tracker for any competition'
     @league = League.new
-    5.times do  # TODO named constant
+    INITIAL_NUM_PLAYER_FIELDS.times do
       @league.players.build
     end
   end

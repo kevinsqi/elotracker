@@ -5,9 +5,11 @@ class League < ActiveRecord::Base
   has_many :players, :dependent => :destroy
   has_many :matches, :dependent => :destroy
 
-  accepts_nested_attributes_for :players, :allow_destroy => true
+  accepts_nested_attributes_for :players,
+                                :allow_destroy => true,
+                                :reject_if => lambda { |player| logger.debug player; player['name'].blank? }
 
   validates_presence_of :name
-  validates_presence_of :is_completed
-  validates_presence_of :is_public
+  validates :is_completed, :inclusion => {:in => [true, false]}
+  validates :is_public, :inclusion => {:in => [true, false]}
 end
