@@ -1,5 +1,6 @@
 class League < ActiveRecord::Base
   attr_accessible :description, :is_completed, :is_public, :name
+  attr_accessible :players_attributes  # TODO confirm safe
 
   has_many :players, :dependent => :destroy
   has_many :matches, :dependent => :destroy

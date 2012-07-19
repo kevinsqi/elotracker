@@ -88,13 +88,11 @@
       <%= form.label :description %>
       <%= form.text_field :description %>
 
-      <%# TODO validation errors, repeated IDs league_player_name %>
-      <% @league.players.each_with_index do |player, index| %>
-        <%= form.fields_for player do |player_form| %>
-          <%= player_form.label :name, "Player #{index + 1}" %>
-          <%= player_form.text_field :name %>
-        <% end %>
+      <%= form.fields_for :players do |player_form| %>
+        <%= player_form.label :name, "Player" %>
+        <%= player_form.text_field :name %>
       <% end %>
+
       <%= form.submit 'Create' %>
     <% end %>
   </div>
