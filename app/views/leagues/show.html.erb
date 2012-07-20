@@ -1,11 +1,10 @@
-<div id="wrapper">
+<div class="header">
   <h1><%= @league.name %></h1>
   <div class="description">
-    <%= @league.description %>
-    <%= @league.is_public ? 'Public' : 'Private' %>
-    <%= @league.is_completed ? 'Complete' : 'Ongoing' %>
-    <%= link_to 'Edit', edit_league_path(@league) %> |
-    <%= link_to 'Back', leagues_path %>
+    <%= @league.description %> |
+    <%= @league.is_public ? 'Public' : 'Private' %> |
+    <%= @league.is_completed ? 'Complete' : 'Ongoing' %> |
+    <%= link_to 'Edit League Settings', edit_league_path(@league) %>
   </div>
 </div>
 

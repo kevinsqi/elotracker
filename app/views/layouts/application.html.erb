@@ -13,7 +13,21 @@
 </head>
 <body class="<%= body_class %>">
 
-<%= yield %>
+  <%# Navigation %>
+  <div class="header">
+    <div id="logo">
+      <%= link_to 'Elotracker', root_path, {:class => 'site-logo'} %>
+      <div class="description">Custom competition ELO tracker</div>
+    </div>
+
+    <div id="navigation">
+      <%= link_to 'View your leagues' %>
+      <%= link_to 'Create a new league' %>
+      <%= link_to 'Sign in' %>
+    </div>
+  </div>
+
+  <%= yield %>
 
 </body>
 </html>

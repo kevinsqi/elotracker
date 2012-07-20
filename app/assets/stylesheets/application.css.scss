@@ -15,26 +15,14 @@
 @import "bourbon";
 @import "960/grid";
 
+// Variables
+$space: 10px;
+
 // Grid layout
 $ninesixty-grid-width: 720px;
 
 body {
   @include grid_container;
-}
-
-#wrapper {  // TODO rename to header
-  @include grid(12);
-  @include clearfix;
-}
-
-#header {
-  @include grid(8);
-  @include alpha;
-}
-
-#navigation {
-  @include grid(4);
-  @include omega;
 }
 
 #content {
@@ -60,3 +48,33 @@ body, h1, h2, h3, h4, h5, h6 {
 ul {
   list-style-type: square;
 }
+
+// Header and navigation
+.header {
+  @include grid(12);
+  @include clearfix;
+  margin-bottom: $space * 2;
+
+  #logo {
+    @include grid(8);
+    @include alpha;
+
+    .site-logo {
+      font-size: 2em;
+      float: left;
+    }
+    .description {
+      float: left;
+      margin-top: $space;
+      margin-left: $space;
+    }
+  }
+
+  #navigation {
+    @include grid(4);
+    @include omega;
+  }
+}
+
+// Homepage (TODO move)
+
