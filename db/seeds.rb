@@ -5,3 +5,15 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+league = League.new(
+  :name => 'Calvinball League 2011',
+  :description => 'Panjiva Internal Calvinball League, Summer 2011'
+)
+
+league.players.build(:name => 'Jim')
+league.players.build(:name => 'Brad')
+league.players.build(:name => 'Shane')
+league.players.build(:name => 'Tim')
+
+league.save!

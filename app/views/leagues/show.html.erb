@@ -41,7 +41,7 @@
     <% else %>
       <% @league.players.each do |player| %>
         <li>
-          <%= player.inspect %>
+          <%= player.name %>, <%= player.player_rating.rating %>
         </li>
       <% end %>
     <% end %>
