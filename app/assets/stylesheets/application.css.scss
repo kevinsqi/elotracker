@@ -70,11 +70,13 @@ ul {
     }
   }
 
-  #navigation {
+  #links {
     @include grid(4);
     @include omega;
   }
 }
 
 // Homepage (TODO move)
-
+#navigation {
+  margin-top: $space;
+}

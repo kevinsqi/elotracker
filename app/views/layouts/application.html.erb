@@ -14,13 +14,13 @@
 <body class="<%= body_class %>">
 
   <%# Navigation %>
-  <div class="header">
+  <div id="navigation" class="header">
     <div id="logo">
       <%= link_to 'Elotracker', root_path, {:class => 'site-logo'} %>
       <div class="description">Custom competition ELO tracker</div>
     </div>
 
-    <div id="navigation">
+    <div id="links">
       <%= link_to 'View your leagues' %>
       <%= link_to 'Create a new league' %>
       <%= link_to 'Sign in' %>
