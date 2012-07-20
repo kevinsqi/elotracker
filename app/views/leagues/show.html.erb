@@ -8,7 +8,8 @@
   </div>
 </div>
 
-<div id="content">
+<div id="main-content">
+  <%# TODO this shouldn't be rendered if blank? %>
   <p id="notice"><%= notice %></p>
 
   <div class="section">
@@ -20,17 +21,29 @@
   <div class="section">
     <h2>Recent matches</h2>
     <div class="content">
+      <% if @league.matches.empty? %>
+        No matches have been submitted yet.
+      <% else %>
+        <% @league.matches.each do |match| %>
+          <%= match.inspect %>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>
 
 <div id="sidebar">
-  <h2>Player Ranking</h2>
+  <h2>Rankings</h2>
   <ol>
-    <% @league.players.each do |player| %>
-      <li>
-        <%= player.inspect %>
-      </li>
+    <% if @league.players.empty? %>
+      No players have been added yet.
+      <%= link_to 'Add them now', edit_league_path %>.
+    <% else %>
+      <% @league.players.each do |player| %>
+        <li>
+          <%= player.inspect %>
+        </li>
+      <% end %>
     <% end %>
   </ol>
 </div>

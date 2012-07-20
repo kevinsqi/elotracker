@@ -25,7 +25,7 @@ body {
   @include grid_container;
 }
 
-#content {
+#main-content {
   @include grid(8);
   @include clearfix;
 }
