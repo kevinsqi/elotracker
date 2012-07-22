@@ -18,6 +18,7 @@
 // Mixins and variables
 $space: 10px;
 $happy-blue: #809fff;
+$grey: #999;
 
 @mixin bree-serif {
   font-family: "Bree Serif", arial, sans-serif;
@@ -82,8 +83,9 @@ ul {
     }
     .description {
       float: left;
-      margin-top: $space;
-      margin-left: $space;
+      margin-top: $space * 1.5;
+      margin-left: $space * 2;
+      color: $grey;
     }
   }
 
