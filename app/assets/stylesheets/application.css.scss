@@ -17,6 +17,8 @@
 
 // Mixins and variables
 $space: 10px;
+$happy-blue: #809fff;
+
 @mixin bree-serif {
   font-family: "Bree Serif", arial, sans-serif;
   font-weight: normal;
@@ -75,6 +77,8 @@ ul {
       @include bree-serif;
       font-size: 2em;
       float: left;
+      text-decoration: none;
+      color: $happy-blue;
     }
     .description {
       float: left;
