@@ -1,6 +1,7 @@
 class League < ActiveRecord::Base
   attr_accessible :description, :is_completed, :is_public, :name
   attr_accessible :players_attributes  # TODO confirm safe
+  attr_accessible :matches_attributes  # TODO confirm safe
 
   has_many :players, :dependent => :destroy
   has_many :matches, :dependent => :destroy
@@ -8,6 +9,7 @@ class League < ActiveRecord::Base
   accepts_nested_attributes_for :players,
                                 :allow_destroy => true,
                                 :reject_if => lambda { |player| logger.debug player; player['name'].blank? }
+  accepts_nested_attributes_for :matches
 
   validates_presence_of :name
   validates :is_completed, :inclusion => {:in => [true, false]}

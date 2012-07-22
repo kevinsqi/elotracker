@@ -15,13 +15,15 @@
   <div class="section">
     <h2>New match</h2>
     <div class="content">
-      <%= form_for @league.matches.build, :remote => true do |form| %>
-        <%= form.label :player_one %>
-        <%= form.select :player_one, options_from_collection_for_select(@league.players, :id, :name) %>
-
-        <%= form.label :player_two %>
-        <%= form.select :player_two, options_from_collection_for_select(@league.players, :id, :name) %>
-
+      <%= form_for @league do |form| %>
+        <%= form.fields_for :matches, @league.matches.build do |match_fields| %>
+          <%= match_fields.label :player_one %>
+          <%= match_fields.select :player_one, options_from_collection_for_select(@league.players, :id, :name) %>
+          <%= match_fields.label :player_two %>
+          <%= match_fields.select :player_two, options_from_collection_for_select(@league.players, :id, :name) %>
+          <%= match_fields.label :score %>
+          <%= match_fields.text_field :score %>
+        <% end %>
         <%= form.submit 'Submit match result' %>
       <% end %>
     </div>
@@ -33,9 +35,15 @@
       <% if @league.matches.empty? %>
         No matches have been submitted yet.
       <% else %>
-        <% @league.matches.each do |match| %>
-          <%= match.inspect %>
-        <% end %>
+        <ul>
+          <% @league.matches.each do |match| %>
+            <li>
+              <%# match.player_one.name %>
+              (<%= match.score %>)
+              <%# match.player_two.name %>
+            </li>
+          <% end %>
+        </ul>
       <% end %>
     </div>
   </div>

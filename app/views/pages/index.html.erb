@@ -75,9 +75,9 @@
       <%= form.label :description %>
       <%= form.text_field :description %>
 
-      <%= form.fields_for :players do |player_form| %>
-        <%= player_form.label :name, "Player" %>
-        <%= player_form.text_field :name %>
+      <%= form.fields_for :players do |player_fields| %>
+        <%= player_fields.label :name, "Player" %>
+        <%= player_fields.text_field :name %>
       <% end %>
 
       <%= form.submit 'Create' %>

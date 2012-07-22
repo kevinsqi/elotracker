@@ -10,3 +10,4 @@ should allow adding new matches on the league page
 should allow adding new players on the league page
 
 should not allow creating two players in a league with the same name
+should not allow creating a match in which a player faces himself

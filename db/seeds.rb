@@ -15,5 +15,7 @@ league.players.build(:name => 'Jim')
 league.players.build(:name => 'Brad')
 league.players.build(:name => 'Shane')
 league.players.build(:name => 'Tim')
-
 league.save!
+
+league.matches.create!(:player_one => league.players.find_by_name('Jim'), :player_two => league.players.find_by_name('Tim'), :score => 0.0)
+
