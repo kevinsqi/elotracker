@@ -15,8 +15,15 @@
 @import "bourbon";
 @import "960/grid";
 
-// Variables
+// Mixins and variables
 $space: 10px;
+@mixin bree-serif {
+  font-family: "Bree Serif", arial, sans-serif;
+  font-weight: normal;
+}
+@mixin open-sans {
+  font-family: "Open Sans", arial, sans-serif;
+}
 
 // Grid layout
 $ninesixty-grid-width: 720px;
@@ -41,8 +48,12 @@ body {
 }
 
 // Global styles
-body, h1, h2, h3, h4, h5, h6 {
-  font-family: "Open Sans", arial, sans-serif;
+h1, h2, h3, h4, h5, h6 {
+  @include bree-serif;
+}
+
+body {
+  @include open-sans;
 }
 
 ul {
@@ -60,6 +71,7 @@ ul {
     @include alpha;
 
     .site-logo {
+      @include bree-serif;
       font-size: 2em;
       float: left;
     }
