@@ -42,9 +42,9 @@
         <ul>
           <% @league.recent_matches.each do |match| %>
             <li>
-              <%= match.player_one.name %>
+              <%= link_to_player(match.player_one) %>
               (<%= match.score %>)
-              <%= match.player_two.name %>
+              <%= link_to_player(match.player_two) %>
             </li>
           <% end %>
         </ul>
@@ -63,7 +63,7 @@
       <% else %>
         <% @league.players.each do |player| %>
           <li>
-            <%= player.name %>, <%= player.player_rating.rating %>
+            <%= link_to_player(player) %>, <%= player.player_rating.rating %>
           </li>
         <% end %>
       <% end %>
