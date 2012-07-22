@@ -21,8 +21,8 @@ $space: 10px;
   font-family: "Bree Serif", arial, sans-serif;
   font-weight: normal;
 }
-@mixin open-sans {
-  font-family: "Open Sans", arial, sans-serif;
+@mixin droid-sans {
+  font-family: "Droid Sans", arial, sans-serif;
 }
 
 // Grid layout
@@ -53,7 +53,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 body {
-  @include open-sans;
+  @include droid-sans;
+  font-size: 1em;
 }
 
 ul {
