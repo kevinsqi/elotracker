@@ -5,7 +5,7 @@ class Player < ActiveRecord::Base
 
   belongs_to :league
   has_many :matches
-  has_one :player_rating
+  has_many :player_ratings
 
   validates :is_professional, :inclusion => {:in => [true, false]}
   validates_presence_of :k_factor
@@ -22,4 +22,21 @@ class Player < ActiveRecord::Base
       self.player_rating ||= PlayerRating.new
     end
   end; private :default_values
+
+  def add_match!(match)
+    self.matches << match
+
+    # TODO calculate new rating
+    old_rating = self.player_rating.rating
+    new_rating = old_rating
+    self.player_ratings.create(:rating => new_rating)
+  end
+
+  def player_rating
+    self.player_ratings.last
+  end
+
+  def player_rating=(rating)
+    self.player_ratings << rating
+  end
 end
