@@ -17,10 +17,10 @@
     <div class="content">
       <%= form_for @league do |form| %>
         <%= form.fields_for :matches, @league.matches.build do |match_fields| %>
-          <%= match_fields.label :player_one %>
-          <%= match_fields.select :player_one, options_from_collection_for_select(@league.players, :id, :name) %>
-          <%= match_fields.label :player_two %>
-          <%= match_fields.select :player_two, options_from_collection_for_select(@league.players, :id, :name) %>
+          <%= match_fields.label :player_one_id %>
+          <%= match_fields.select :player_one_id, options_from_collection_for_select(@league.players, :id, :name) %>
+          <%= match_fields.label :player_two_id %>
+          <%= match_fields.select :player_two_id, options_from_collection_for_select(@league.players, :id, :name) %>
           <%= match_fields.label :score %>
           <%= match_fields.text_field :score %>
         <% end %>
@@ -32,15 +32,15 @@
   <div class="section">
     <h2>Recent matches</h2>
     <div class="content">
-      <% if @league.matches.empty? %>
+      <% if @league.recent_matches.empty? %>
         No matches have been submitted yet.
       <% else %>
         <ul>
-          <% @league.matches.each do |match| %>
+          <% @league.recent_matches.each do |match| %>
             <li>
-              <%# match.player_one.name %>
+              <%= match.player_one.name %>
               (<%= match.score %>)
-              <%# match.player_two.name %>
+              <%= match.player_two.name %>
             </li>
           <% end %>
         </ul>
@@ -68,8 +68,10 @@
 
   <div class="section">
     <h2>Add new player</h2>
-    <%= form_for @league.players.build, :remote => true do |form| %>
-      <%= form.label :name %><%= form.text_field :name %>
+    <%= form_for @league do |form| %>
+      <%= form.fields_for :players, @league.players.build do |player_fields| %>
+        <%= player_fields.label :name %><%= player_fields.text_field :name %>
+      <% end %>
       <%= form.submit 'Add' %>
     <% end %>
   </div>

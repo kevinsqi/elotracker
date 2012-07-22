@@ -3,7 +3,8 @@ class Match < ActiveRecord::Base
   belongs_to :player_two, :class_name => 'Player', :foreign_key => 'player_two_id'
   belongs_to :league
   attr_accessible :notes, :score
-  attr_accessible :player_one, :player_two  # TODO safe?
+  attr_accessible :player_one, :player_one_id  # TODO safe?
+  attr_accessible :player_two, :player_two_id  # TODO safe?
 
   validates_presence_of :player_one_id
   validates_presence_of :player_two_id

@@ -14,4 +14,12 @@ class League < ActiveRecord::Base
   validates_presence_of :name
   validates :is_completed, :inclusion => {:in => [true, false]}
   validates :is_public, :inclusion => {:in => [true, false]}
+
+  def recent_matches
+    matches.where("id IS NOT NULL").order("created_at DESC")
+  end
+
+  def players_by_rank
+    players.where("id IS NOT NULL").includes(:player_rating).order("player_rating.rating DESC, player.name ASC")
+  end
 end
