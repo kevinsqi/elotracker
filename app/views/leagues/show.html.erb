@@ -6,14 +6,18 @@
     <%= @league.is_completed ? 'Complete' : 'Ongoing' %> |
     <%= link_to 'League Settings', edit_league_path(@league) %>
   </div>
+  <%# TODO this shouldn't be rendered if blank? %>
 </div>
 
-<div id="main-content">
-  <%# TODO this shouldn't be rendered if blank? %>
-  <p id="notice"><%= notice %></p>
+<% if !notice.blank? %>
+  <div class="header">
+    <p id="notice"><%= notice %></p>
+  </div>
+<% end %>
 
+<div id="main-content">
   <div class="section">
-    <h2>New match</h2>
+    <h2>New Match Result</h2>
     <div class="content">
       <%= form_for @league do |form| %>
         <%= form.fields_for :matches, @league.matches.build do |match_fields| %>
@@ -30,7 +34,7 @@
   </div>
 
   <div class="section">
-    <h2>Recent matches</h2>
+    <h2>Recent Matches</h2>
     <div class="content">
       <% if @league.recent_matches.empty? %>
         No matches have been submitted yet.
@@ -67,7 +71,7 @@
   </div>
 
   <div class="section">
-    <h2>Add new player</h2>
+    <h2>Add New Player</h2>
     <%= form_for @league do |form| %>
       <%= form.fields_for :players, @league.players.build do |player_fields| %>
         <%= player_fields.label :name %><%= player_fields.text_field :name %>
