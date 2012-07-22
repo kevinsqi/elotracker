@@ -11,6 +11,7 @@ class Player < ActiveRecord::Base
   validates_presence_of :k_factor
   validates_presence_of :name
   validates_presence_of :player_rating
+  validates_uniqueness_of :name, :scope => :league_id
 
   after_initialize :default_values
 
