@@ -12,7 +12,7 @@ class League < ActiveRecord::Base
   accepts_nested_attributes_for :matches
 
   validates_presence_of :name
-  validates :is_completed, :inclusion => {:in => [true, false]}
+  validates :is_completed, :inclusion => {:in => [true, false]}  # TODO rename column to is_locked
   validates :is_public, :inclusion => {:in => [true, false]}
 
   def recent_matches
