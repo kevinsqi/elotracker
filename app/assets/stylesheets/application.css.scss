@@ -33,6 +33,7 @@ $ninesixty-grid-width: 720px;
 
 body {
   @include grid_container;
+  @include linear-gradient(#fff, #eee);  // TODO not perfect, better option?
 }
 
 #main-content {
