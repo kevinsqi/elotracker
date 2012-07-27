@@ -44,6 +44,10 @@ body {
 #sidebar {
   @include grid(4);
   @include clearfix;
+
+  input[type="text"] {  // TODO refactor
+    width: 100%;
+  }
 }
 
 #footer {

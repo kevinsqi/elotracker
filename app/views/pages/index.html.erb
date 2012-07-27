@@ -1,6 +1,6 @@
 <div id="main-content">
   <div class="section">
-    <h2>Use ELO for rankings</h2>
+    <h2>Rank Everything</h2>
     <div class="content">
       <p>
         ELO is a system developed for ranking Chess players based on <strong>relative strengths between players.</strong>
@@ -27,7 +27,7 @@
   </div>
 
   <div class="section">
-    <h2>Elotracker features</h2>
+    <h2>Elotracker Features</h2>
     _______screenshots______
     <div class="content">
       <ul>
@@ -73,8 +73,6 @@
     <%= form_for @league do |form| %>
       <%= form.label :name %>
       <%= form.text_field :name %>
-      <%= form.label :description %>
-      <%= form.text_field :description %>
 
       <%= form.fields_for :players do |player_fields| %>
         <%= player_fields.label :name, "Player" %>
