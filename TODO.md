@@ -11,3 +11,5 @@ should allow adding new players on the league page
 
 should not allow creating two players in a league with the same name
 should not allow creating a match in which a player faces himself
+
+should report the same ELO change regardless of the ordering of players in the match

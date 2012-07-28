@@ -44,5 +44,6 @@ gem 'jquery-rails'
 
 # @custom gems (keep alphabetical)
 gem 'bourbon'
+gem 'elo'
 gem 'flutie'
 gem 'thin'

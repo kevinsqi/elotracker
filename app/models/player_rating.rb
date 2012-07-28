@@ -1,3 +1,4 @@
+# TODO track rating source in db (match, manual edit)
 class PlayerRating < ActiveRecord::Base
   DEFAULT_RATING = 1500
   DEFAULT_K_FACTOR = 15

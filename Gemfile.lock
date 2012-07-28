@@ -49,6 +49,7 @@ GEM
     compass-rails (1.0.2)
       compass (>= 0.12.0, < 0.14)
     daemons (1.1.8)
+    elo (0.1.0)
     erubis (2.7.0)
     eventmachine (0.12.10)
     execjs (1.4.0)
@@ -127,6 +128,7 @@ DEPENDENCIES
   compass
   compass-960-plugin
   compass-rails
+  elo
   flutie
   jquery-rails
   pg

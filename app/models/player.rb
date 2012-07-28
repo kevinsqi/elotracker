@@ -19,13 +19,14 @@ class Player < ActiveRecord::Base
     end
   end; private :default_values
 
+  # TODO error handling?
   def add_match!(match)
     self.matches << match
-
-    # TODO calculate new rating
-    old_rating = self.player_rating.rating
-    new_rating = old_rating
-    self.player_ratings.create(:rating => new_rating)
+    self.player_ratings.create(
+      :is_professional => self.is_professional,
+      :k_factor        => self.k_factor,
+      :rating          => match.rating_for_player(self)
+    )
   end
 
   def player_rating
