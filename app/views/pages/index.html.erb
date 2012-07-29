@@ -73,12 +73,6 @@
     <%= form_for @league do |form| %>
       <%= form.label :name %>
       <%= form.text_field :name %>
-
-      <%= form.fields_for :players do |player_fields| %>
-        <%= player_fields.label :name, "Player" %>
-        <%= player_fields.text_field :name %>
-      <% end %>
-
       <%= form.submit 'Create' %>
     <% end %>
   </div>

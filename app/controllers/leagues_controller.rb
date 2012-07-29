@@ -25,6 +25,9 @@ class LeaguesController < ApplicationController
   # GET /leagues/new.json
   def new
     @league = League.new
+    6.times do
+      @league.players.build
+    end
 
     respond_to do |format|
       format.html # new.html.erb

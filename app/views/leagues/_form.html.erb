@@ -13,11 +13,11 @@
 
   <div class="field">
     <%= f.label :name %><br />
-    <%= f.text_area :name %>
+    <%= f.text_field :name %>
   </div>
   <div class="field">
     <%= f.label :description %><br />
-    <%= f.text_area :description %>
+    <%= f.text_field :description %>
   </div>
   <div class="field">
     <%= f.label :is_public %><br />
@@ -27,6 +27,12 @@
     <%= f.label :is_completed %><br />
     <%= f.check_box :is_completed %>
   </div>
+
+  <%= f.fields_for :players do |player_fields| %>
+    <%= player_fields.label :name, 'Player' %>
+    <%= player_fields.text_field :name %>
+  <% end %>
+
   <div class="actions">
     <%= f.submit %>
   </div>
