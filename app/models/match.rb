@@ -1,7 +1,9 @@
+# TODO track both players' old rating and new rating?
 class Match < ActiveRecord::Base
   belongs_to :player_one, :class_name => 'Player', :foreign_key => 'player_one_id'
   belongs_to :player_two, :class_name => 'Player', :foreign_key => 'player_two_id'
   belongs_to :league
+  has_many :player_ratings
 
   attr_accessible :notes, :score
   attr_accessible :player_one, :player_one_id  # TODO safe?
@@ -19,7 +21,16 @@ class Match < ActiveRecord::Base
     end
   end; private :players_are_different
 
-  def rating_for_player(player)
+  def player_one_rating
+    player_ratings.where('player_id = ?', self.player_one_id).first
+  end
+
+  def player_two_rating
+    player_ratings.where('player_id = ?', self.player_two_id).first
+  end
+
+  # TODO refactor?
+  def create_rating_for_player(player)
     raise 'Invalid player for match' if ![player_one, player_two].include?(player)
 
     opponent = (player == player_one) ? player_two : player_one

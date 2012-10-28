@@ -97,6 +97,7 @@ ul {
   #links {
     @include grid(4);
     @include omega;
+    margin-top: $space * 1.5;
   }
 }
 

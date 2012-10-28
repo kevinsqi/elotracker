@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120727042731) do
+ActiveRecord::Schema.define(:version => 20120728071842) do
 
   create_table "leagues", :force => true do |t|
     t.text     "name"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(:version => 20120727042731) do
     t.datetime "updated_at",                         :null => false
     t.integer  "k_factor"
     t.boolean  "is_professional", :default => false
+    t.integer  "match_id"
   end
 
   add_index "player_ratings", ["player_id"], :name => "index_player_ratings_on_player_id"
