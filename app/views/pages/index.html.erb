@@ -72,7 +72,7 @@
     <h2>Create a new league</h2>
     <%= form_for @league do |form| %>
       <%= form.label :name %>
-      <%= form.text_field :name %>
+      <%= form.text_field :name, :placeholder => 'e.g. Google Foosball 2012' %>
       <%= form.submit 'Create' %>
     <% end %>
   </div>
